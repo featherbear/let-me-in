@@ -12,7 +12,7 @@ if [ $result -ne 0 ]; then
     exit
 fi
 
-keyFile=~/.ssh/authorised_keys
+keyFile=~/.ssh/authorized_keys
 
 if ! grep -q "$key" "$keyFile" 2> /dev/null; then
     read -p "Enter key comment [andrew wong]: " comment
