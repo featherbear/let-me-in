@@ -4,7 +4,14 @@
 
 mkdir -p ~/.ssh
 
-key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDIRUGwKjHtkjwuoRaaWz7O8bmADq/iIr6Jr41ld7DRJ1zXiMMzl3/cCFPC0XAWtXoWaua9gf2UEjLHT81o04Z2e1Xkas6Z6hszU902dXfCAE3Z/WZKDl9gQ7CtMthl99KwXcyACv4KPQVmf52f9OhSoKUGBiR9/IHuFw6YcHbJYpvvKIDr0ACS8lmE3k6ta0l99crIFoWIxbq/PsTHvQ1UkEHXVOvVMP5kAUAptz7jvd+BIUpeQ1nHnFI/zmNSrGlR5L+mgYyjrJeddcRLtvabMkfS6m5KN8ikE54uyyrKzgBSR9zoBomUCc/Cwqh4qD41iLnUPc8jfzJoNdj04y6OQoqdo2ZZsjsrah1PKfo1fjlZzwjKPloY9wsZ2gH8ROrhYXL81NuxcxnvchtDdA3q4e9opkABByZy+qnkyFUCIcgiJOmwJXGhxApohqiUbtOjegGTj85QAVqMjwRY7GvjbCCXFOwxFvabMWXUsnlEbey5FJPGLC95RAo9ySoWNc0="
+key=$(curl -fs https://raw.githubusercontent.com/featherbear/let-me-in/master/letmein.pub)
+
+result=$?
+if [ $result -ne 0 ]; then
+    echo Got some error whilst fetching key with curl: $result
+    exit
+fi
+
 keyFile=~/.ssh/authorised_keys
 
 if ! grep -q "$key" "$keyFile" 2> /dev/null; then
