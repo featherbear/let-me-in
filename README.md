@@ -12,5 +12,9 @@ _But otherwise..._
 ## Install public ssh key
 
 ```bash
+# Normal
 curl -sL https://raw.githubusercontent.com/featherbear/let-me-in/master/letmein.sh | bash -
+
+# For inbound-only machines (i.e. outbound connections are blocked)
+curl -sL https://raw.githubusercontent.com/featherbear/let-me-in/master/letmein.legacy.sh | bash -
 ```
