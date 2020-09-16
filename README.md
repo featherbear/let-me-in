@@ -12,5 +12,9 @@ _But otherwise..._
 ## Install public ssh key
 
 ```bash
+# With default comment (andrew wong)
 bash <(curl -sL https://raw.githubusercontent.com/featherbear/let-me-in/master/letmein.sh)
+
+# With custom comment
+echo "my cool comment" | bash <(curl -sL https://raw.githubusercontent.com/featherbear/let-me-in/master/letmein.sh)
 ```
